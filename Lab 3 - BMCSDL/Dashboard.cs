@@ -22,6 +22,7 @@ namespace Lab_3___BMCSDL
         private Button btnQuanLyLop;
         private Button btnQuanLySV;
         private Button btnNhapDiem;
+        private Button btnDataNV;
         private string _manv;
         private string _pass;
 
@@ -124,7 +125,7 @@ namespace Lab_3___BMCSDL
             // Thông số nút và margin
             int btnWidth = 200;
             int btnHeight = 40;
-            int btnCount = 4;
+            int btnCount = 5;                           // 5 nút
             int btnSpacing = 10;                        // khoảng cách giữa các nút
             int marginTop = 20;                         // khoảng cách từ đỉnh panel đến nút đầu
             int marginBottom = 20;                      // khoảng cách từ nút cuối đến đáy panel
@@ -152,17 +153,21 @@ namespace Lab_3___BMCSDL
             sidebarPanel.Controls.Add(btnDashboard);
             btnDashboard.Click += (s, e) => ShowContent(new UcDashboard());
 
-            btnQuanLyLop = CreateSidebarButton("Quản lý Lớp", 10, startY + (btnHeight + btnSpacing) * 1);
+            btnQuanLyLop = CreateSidebarButton("Quản lý Lớp", 10, startY + (btnHeight + btnSpacing) * 2);
             sidebarPanel.Controls.Add(btnQuanLyLop);
             btnQuanLyLop.Click += (s, e) => ShowContent(new UcQuanLyLop());
 
-            btnQuanLySV = CreateSidebarButton("Quản lý SV", 10, startY + (btnHeight + btnSpacing) * 2);
+            btnQuanLySV = CreateSidebarButton("Quản lý SV", 10, startY + (btnHeight + btnSpacing) * 3);
             sidebarPanel.Controls.Add(btnQuanLySV);
             btnQuanLySV.Click += (s, e) => ShowContent(new UcQuanLySV(_manv));
 
-            btnNhapDiem = CreateSidebarButton("Nhập Điểm", 10, startY + (btnHeight + btnSpacing) * 3);
+            btnNhapDiem = CreateSidebarButton("Nhập Điểm", 10, startY + (btnHeight + btnSpacing) * 4);
             sidebarPanel.Controls.Add(btnNhapDiem);
             btnNhapDiem.Click += (s, e) => ShowContent(new UcNhapDiem(_manv, _pass));
+
+            btnDataNV = CreateSidebarButton("Dữ liệu NV", 10, startY + (btnHeight + btnSpacing) * 1);
+            sidebarPanel.Controls.Add(btnDataNV);
+            btnDataNV.Click += (s, e) => ShowContent(new UcDataNhanVien(_manv));
 
             // --- Khung nội dung chính (Content) --- 
             int contentX = sidebarPanel.Right + horizontalGap;
